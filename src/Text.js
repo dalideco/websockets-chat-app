@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './scss/text.scss';
+
+import { useSelector } from "react-redux";
 
 
 
 
 export default function Text() {
 
-    const [fakeData,setFakeData] = useState([
-        {User:'dali', message:'hello'},
-        {User:'ziraj', message:'yeddek'},
-    ])
+    const fakeData = useSelector(state=> state.messages);
 
-    useEffect(()=>{
-        setFakeData(prev=>[...prev, {User:'dope',message:'fuck you'}])
-    },[])
+    
 
     return (
         <div className="text">
-            {fakeData.map(data=>(
-                <div className="message">
-                    <div className={`cadre ${(data.User==='dali')?'current-user': 'other-user'}`}>
-                        {data.message}
+            {fakeData.map((data,index)=>(
+                <div className="message" key={index}>
+                    <div className={`cadre ${(data.sender==='dali')?'current-user': 'other-user'}`}>
+                        {data.message + ' '} 
+                        <p>{data.sender}</p>
                     </div>
+                    
                 </div>
             ))}
         </div>

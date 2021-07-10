@@ -16,9 +16,18 @@
         float :right; 
         -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1); 
         box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+        position: relative;
         &.current-user{
             background: var(--my-green);
             float: left; 
+        }
+        p{
+            position: absolute;
+            top: 100%;
+            right: 10px ; 
+            font-size: 0.8rem ; 
+            color: grey;
+
         }
     }
 }
