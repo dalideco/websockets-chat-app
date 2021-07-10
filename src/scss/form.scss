@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    input,button{
+        border-radius: 10px;
+        padding: 8px 30px;
+        border : none;
+    }   
+    input{
+        &:focus{
+            outline: none;
+            -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 145, 170, 0.29); 
+            box-shadow: 5px 5px 15px rgba(0, 145, 170, 0.29);
+        }
+    }
+    button{
+        background-color: var(--my-green);
+        color: white;
+        font-size: 1.3rem;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+}
