@@ -8,18 +8,29 @@
     row-gap: 15px;
     overflow-y:auto;
 
+    .message {
+        position: relative;
+        height: 45px;
+    }
+
     .cadre{
         padding: 12px 30px ;
         border-radius:  30px; 
         color: white; 
         background-color: grey;
-        float :right; 
+        position: absolute; 
+        right: 0;
+        top: 0 ;
+
         -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1); 
         box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
-        position: relative;
+        
+        transition: left 300ms ease, background-color 300ms ease,right 300ms ease; 
+        
         &.current-user{
             background: var(--my-green);
-            float: left; 
+            left: 0;
+            right: initial;
         }
         p{
             position: absolute;
