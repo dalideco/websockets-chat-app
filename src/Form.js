@@ -2,13 +2,13 @@ import React from 'react'
 import './scss/form.scss'
 
 import { useDispatch, useSelector } from "react-redux";
-import { setInput, addMessage } from "./redux/actions";
+import { setInput } from "./redux/actions";
 
-export default function Form() {
+export default function Form({socket}) {
 
     const dispatch = useDispatch(); 
     const {username, message} = useSelector(state=> state.inputs);
-    const state = useSelector(state=> state);
+    
 
     
 
@@ -21,9 +21,13 @@ export default function Form() {
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        console.log(username, message);
-        await dispatch(addMessage(username, message));
-        console.log(state)
+        
+        await socket.emit('chat',{
+            sender: username,
+            message
+        })
+
+        dispatch(setInput('message',''))
     }
 
     return (
